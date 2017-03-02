@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="quotes">
+  <head>
+    <meta charset="utf-8">
+    <title>Inspirational Quotes</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.js"></script>
+
+    <script src="module.js" charset="utf-8"></script>
+    <script src="controller.home.js" charset="utf-8"></script>
+    <script src="factory.quotes.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body ng-controller="HomeController as home">
+    <h1>{{home.greeting}}</h1>
+
+    <!-- <button ng-click="home.addQuote(addQuote)" class="btn btn-success" type="button" name="button">Add Your Own Awesome Quote</button> -->
+
+    <form class="" action="index.html" method="post">
+      Quote:<br>
+      <input class="quote"ng-model="home.quote.quote" type="text" value=""><br>
+      Author:<br>
+      <input ng-model="home.quote.author" type="text">
+
+
+
+      <button ng-click="home.saveQuote()" type="button" name="button" class="btn btn-success">Submit</button>
+
+    </form>
+
+    <div ng-repeat="quote in home.quotes | orderBy: '-rating'" ng-hide="delete">
+      <h3 >Quote: "{{quote.quote}}"</h3>
+      <h5 >by: <a href="#" target="_blank">{{quote.author}}</a></h5>
+      <h6>rating: {{quote.rating}}</h6>
+      <!-- <spanng-model="quote.rating">&#9734</span><spanng-model="quote.rating">&#9734</span><spanng-model="quote.rating">&#9734</span><spanng-model="quote.rating">&#9734</span><spanng-model="quote.rating">&#9734</span> -->
+      <div class="">
+
+        <fieldset class="rating">
+          <!-- <h4>{{quote.rating}}</h4> -->
+          <input ng-model="quote.rating" type="radio" id="star5{{$index}}"name="rating" ng-value="5" ><label for="star5{{$index}}" title="Great">&#9734</label>
+          <input ng-model="quote.rating" type="radio" id="star4{{$index}}"name="rating" ng-value="4" ><label for="star4{{$index}}" title="Good">&#9734</label>
+          <input ng-model="quote.rating" type="radio" id="star3{{$index}}"name="rating" ng-value="3" ><label for="star3{{$index}}" title="so/so">&#9734</label>
+          <input ng-model="quote.rating" type="radio" id="star2{{$index}}"name="rating" ng-value="2" ><label for="star2{{$index}}" title="Not Good">&#9734</label>
+          <input ng-model="quote.rating" type="radio" id="star1{{$index}}"name="rating" ng-value="1" ><label for="star1{{$index}}" title="Awful">&#9734</label>
+        </fieldset>
+
+      </div>
+      <br>
+      <br>
+
+
+      <button  ng-click="delete =! delete" class="btn btn-danger" type="button" name="button">Delete Quote</button>
+      <hr>
+    </div>
+
+  </body>
+</html>
