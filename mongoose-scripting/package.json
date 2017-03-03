@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-scripting",
+  "version": "1.0.0",
+  "description": "mongoose-scripting",
+  "main": "dbScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haysbc01/week5-excercises.git"
+  },
+  "author": "brian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haysbc01/week5-excercises/issues"
+  },
+  "homepage": "https://github.com/haysbc01/week5-excercises#readme",
+  "dependencies": {
+    "mongoose": "^4.8.5"
+  }
+}
